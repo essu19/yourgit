@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-import socket, time, sys
+import socket, time, sys, signal
 
 def socket_create():
     try:
@@ -50,3 +50,8 @@ def Main():
 
 if __name__ == '__main__':
     Main()
+
+def signal_handler(signal, frame):
+    sys.exit()
+
+signal.signal(signal.SIGINT, signal_handler)

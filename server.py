@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-import socket, time
+import socket, time, signal
 
 MAX_CLIENTS = 64
 CLIENTS = []
@@ -59,3 +59,8 @@ def Main():
 
 if __name__ == '__main__':
     Main()
+
+def signal_handler(signal, frame):
+    sys.exit()
+
+signal.signal(signal.SIGINT, signal_handler)
